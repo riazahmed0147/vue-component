@@ -2,10 +2,14 @@
   <div class="product-container">
     <div class="product-row">
       <div class="product-col" v-for='product in products' :key='product.objectID'>
-        <div class="product-image"><img :alt='product.name' :src='product.image_url'></div>        
-        <div>{{product.brand_new}}</div>
-        <div>{{product.name}}</div>
-        <div>{{product.special_price}} {{product.currency}}</div>
+        <ProductCard
+          v-bind:imageUrl="product.image_url"
+          v-bind:brand="product.brand_new"
+          v-bind:name="product.name"
+          v-bind:specialPrice="product.special_price"
+          v-bind:currency="product.currency"
+          v-bind:price="product.price[product.currency]"
+        />
       </div>
     </div>
   </div>
@@ -41,6 +45,7 @@
 <script setup>
   import { onMounted, computed } from 'vue';
   import { useStore } from 'vuex'
+  import ProductCard from './ProductCard.vue';
 
   const store = useStore();
 
