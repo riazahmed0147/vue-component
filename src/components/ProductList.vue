@@ -1,46 +1,20 @@
 <template>
-  <div class="product-container">
-    <div class="product-row">
-      <div class="product-col" v-for='product in products' :key='product.objectID'>
+  <b-container>
+    <b-row>
+      <b-col sm="6" lg="3" v-for='product in products' :key='product.objectID'>
         <ProductCard
-          v-bind:imageUrl="product.image_url"
-          v-bind:brand="product.brand_new"
-          v-bind:name="product.name"
-          v-bind:specialPrice="product.special_price"
-          v-bind:currency="product.currency"
-          v-bind:price="product.price[product.currency]"
+          :imageUrl="product.image_url"
+          :brand="product.brand_new"
+          :name="product.name"
+          :specialPrice="product.special_price"
+          :currency="product.currency"
+          :price="product.price[product.currency]"
+          :stock="product.in_stock"
         />
-      </div>
-    </div>
-  </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
-
-<style lang="scss">
-  .product-container {
-    width: 1000px;
-    margin: 20px auto;
-    padding: 0 15px;
-
-    .product-row {
-      margin-left: -15px;
-      margin-right: -15px;
-      display: flex;
-      flex-wrap: wrap;
-
-      .product-col {
-        width: 25%;
-        padding: 0 15px;
-        margin-bottom: 15px;
-
-        .product-image {
-          img {
-            width: 100%;
-          }
-        }
-      }
-    }
- }
-</style>
 
 <script setup>
   import { onMounted, computed } from 'vue';
