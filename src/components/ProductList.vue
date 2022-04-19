@@ -61,6 +61,7 @@
           size_new: [],
           gender: '',
           fragrance_notes: '',
+          associated_products: [],
         },
       }
     },
