@@ -23,7 +23,7 @@
       <b-col v-if="discount" class="discount-price">Save {{savePrice}}</b-col>
     </b-row>
     <b-button v-if="inStock" @click="click(index)" class="btn-block" href="#" v-b-modal.modal-1>Add +</b-button>
-    <b-button v-else class="btn-block" href="#">Notify Me</b-button>
+    <b-button v-else @click="click(index)" class="btn-block" href="#" v-b-modal.modal-2>Notify Me</b-button>
   </b-card>
 </template>
 
