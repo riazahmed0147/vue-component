@@ -17,6 +17,7 @@
     </b-row>
   </b-container>
   <AddToCartModal :product="selectedProduct" />
+  <NotifyMeModal :name="selectedProduct.name" />
 </template>
 
 <style lang="scss">
@@ -28,6 +29,7 @@
 <script>
   import ProductCard from './ProductCard.vue';
   import AddToCartModal from './AddToCartModal.vue';
+  import NotifyMeModal from './NotifyMeModal.vue';
 
   import store from '../store'
 
@@ -36,7 +38,8 @@
     props: {},
     components: {
       ProductCard,
-      AddToCartModal
+      AddToCartModal,
+      NotifyMeModal
     },
     data() {
       return {
