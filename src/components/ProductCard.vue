@@ -22,7 +22,7 @@
       <b-col v-if="discount" class="original-price">{{price.default_original_formated}}</b-col>
       <b-col v-if="discount" class="discount-price">Save {{savePrice}}</b-col>
     </b-row>
-    <b-button v-if="inStock" class="btn-block" href="#">Add +</b-button>
+    <b-button v-if="inStock" @click="click(index)" class="btn-block" href="#" v-b-modal.modal-1>Add +</b-button>
     <b-button v-else class="btn-block" href="#">Notify Me</b-button>
   </b-card>
 </template>
@@ -45,9 +45,6 @@
       text-align: right;
       margin-bottom: 0.5rem;
       margin-top: -0.5rem;
-    }
-    .btn-block {
-      width: 100%;
     }
     .img-responsive {
       max-width: 100%;
@@ -118,6 +115,12 @@ export default {
     },
     stock: {
       type: Number
+    },
+    index: {
+      type: Number
+    },
+    click: {
+      type: Function
     }
   },
   computed: {
@@ -141,6 +144,6 @@ export default {
     handleClick() {
       this.isMarkedFavorite = !this.isMarkedFavorite
     }
-  } 
+  }
 }
 </script>
